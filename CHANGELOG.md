@@ -1,6 +1,6 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# yaml-cross-file-navigation Changelog
+# yaml-cross-file-navigator Changelog
 
 ## [Unreleased]
 ### Added

@@ -1,18 +1,20 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.31oli31.yamlcrossfilenavigation</id>
-    <name>yaml-cross-file-navigation</name>
-    <vendor>31oli31</vendor>
+    <id>com.project.yamlcrossfilenavigator</id>
+    <name>Yaml-Cross-File-Navigator</name>
+    <vendor>Oliver Dirr</vendor>
+    <icon>my_icon.png</icon>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <depends>org.jetbrains.plugins.yaml</depends>
+
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.31oli31.yamlcrossfilenavigation.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <gotoDeclarationHandler implementation="com.project.yamlcrossfilenavigator.listeners.YamlGotoDeclarationHandler"/>
+        <editorFactoryMouseListener implementation="com.project.yamlcrossfilenavigator.listeners.YamlEditorMouseListener"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.31oli31.yamlcrossfilenavigation.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+
+
 </idea-plugin>
