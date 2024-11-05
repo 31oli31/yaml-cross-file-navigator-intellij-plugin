@@ -3,7 +3,6 @@
     <id>com.project.yamlcrossfilenavigator</id>
     <name>Yaml-Cross-File-Navigator</name>
     <vendor>Oliver Dirr</vendor>
-    <icon>my_icon.png</icon>
 
     <depends>com.intellij.modules.platform</depends>
 
