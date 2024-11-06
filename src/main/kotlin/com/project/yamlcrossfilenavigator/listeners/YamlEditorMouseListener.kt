@@ -15,8 +15,10 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.yaml.psi.YAMLFile
 import org.jetbrains.yaml.psi.YAMLKeyValue
+import org.jetbrains.yaml.psi.YAMLSequence
 import org.yaml.snakeyaml.Yaml
 import java.io.File
+import kotlin.math.log
 
 class YamlEditorMouseListener : EditorMouseListener {
 
@@ -57,6 +59,20 @@ class YamlEditorMouseListener : EditorMouseListener {
     ) {
         val keyText = yamlKeyValue.keyText
         val valueText = yamlKeyValue.value?.text ?: return
+        logger.warn("Clicked on key: $keyText, value: $valueText, word: $wordClicked")
+
+
+        if (yamlKeyValue.value is YAMLSequence) {
+            val sequence = yamlKeyValue.value as YAMLSequence
+            sequence.items.forEach {
+                val anchorName = it.text.removePrefix("-").trim().removePrefix("*")
+                if (anchorName == wordClicked) {
+                    navigateToAnchorReference(project, wordClicked, importPaths, currentFilePath)
+                    return;
+                }
+            }
+        }
+
 
         if (valueText.startsWith("*")) {
             navigateToAnchorReference(project, valueText.removePrefix("*"), importPaths, currentFilePath)

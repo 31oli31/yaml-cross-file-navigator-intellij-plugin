@@ -1,8 +1,9 @@
 # YAML Navigation Extension
 
 ## Overview
+<!-- Plugin description -->
 
-The **YAML Navigation Extension** is a VSCode extension designed to enhance the development workflow by providing advanced code navigation features for YAML files. This extension allows users to navigate directly to imported YAML files and locate YAML anchors (`&` definitions) across multiple imported files. It's particularly helpful in managing complex YAML configurations with nested structures and reusable content.
+The **YAML Navigation Extension** is a Intelij extension designed to enhance the development workflow by providing advanced code navigation features for YAML files. This extension allows users to navigate directly to imported YAML files and locate YAML anchors (`&` definitions) across multiple imported files. It's particularly helpful in managing complex YAML configurations with nested structures and reusable content.
 
 ## Key Features
 
@@ -139,7 +140,6 @@ $finalData = loadYamlWithImports($mainYamlFile);
 print_r($finalData);
 ```
 
-<!-- Plugin description -->
 
 <!-- Plugin description end -->
 
